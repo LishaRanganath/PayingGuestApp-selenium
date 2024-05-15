@@ -19,7 +19,6 @@ class AdminPage():
         time.sleep(1)
         self.driver.find_element(By.XPATH,"//div[@class='form-container']/form/input[@type='submit']").click()
         time.sleep(2)
-
     def activate_owner(self,name):
         self.driver.find_element(By.XPATH,"//button/a[text()='Activate']").click()
         time.sleep(1)

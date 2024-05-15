@@ -11,4 +11,4 @@ class HomePage():
     def show(self):
         self.driver.get("http://127.0.0.1:3000")
         self.driver.maximize_window()
-        time.sleep(3)
+        time.sleep(2)
