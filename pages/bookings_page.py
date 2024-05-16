@@ -20,5 +20,5 @@ class BookingsPage():
     def navigate_to_complaints(self):
         self.driver.find_element(By.XPATH,"//a[text()='Compalints']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH,"(//button[text()='Approve'])[3]").click()
+        self.driver.find_element(By.XPATH,"(//button[text()='Approve'])[1]").click()
         time.sleep(2)

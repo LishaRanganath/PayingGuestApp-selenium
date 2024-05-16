@@ -23,3 +23,7 @@ class LoginPage():
     def logout(self):
         self.driver.find_element(By.XPATH, "//button[text()='SignOut']").click()
         time.sleep(2)
+
+    def navigate_to_payments_page(self):
+        self.driver.find_element(By.XPATH,"//a[text()='Payments']").click()
+        time.sleep(3)
