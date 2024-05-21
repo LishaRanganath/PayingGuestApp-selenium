@@ -1,5 +1,6 @@
 import time
 
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 class SignUpPage():
@@ -16,7 +17,10 @@ class SignUpPage():
         self.driver.find_element(By.XPATH, "//input[@id='user_email']").send_keys(email)
         self.driver.find_element(By.XPATH, "//input[@id='user_password']").send_keys(password)
         self.driver.find_element(By.XPATH, "//input[@id='user_password_confirmation']").send_keys(confirm_password)
-        self.driver.find_element(By.XPATH, "//input[@type='submit']").click()
+        element = self.driver.find_element(By.XPATH, "//input[@type='submit']")
+        actions = ActionChains(self.driver)
+        actions.scroll_to_element(element).perform()
+        element.click()
         time.sleep(2)
 
     def filter_buildings(self,type,room_type,category):
