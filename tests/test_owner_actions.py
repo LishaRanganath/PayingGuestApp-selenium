@@ -21,7 +21,7 @@ def test_owner_actions(chrome_browser):
     sign_up_page.navigate_to_sign_up_page()
 
     # Sign up as user
-    sign_up_page.sign_up("Lisha", "32453684765", "lishar12002@gmail.com", "lisha123", "lisha123")
+    sign_up_page.sign_up("Lisha", "32453684765", "lishar2112@gmail.com", "lisha123", "lisha123")
 
     # apply the filters
     # sign_up_page.filter_buildings("Z-A","Double-Sharing","With-AC")
@@ -32,12 +32,12 @@ def test_owner_actions(chrome_browser):
     building_db = Building()
     room_db = Room()
     payments_page = PaymentsPage(driver)
-    user_id = user_db.get_user_id("lishar12002@gmail.com")
+    user_id = user_db.get_user_id("lishar2112@gmail.com")
 
     building_page = BuildingPage(driver)
     building_page.get_building_imformation("Airbnb1")
     building_id = building_db.get_building_id("Airbnb1")
-    room_id = building_page.book_a_room("18-05", 2, 2)
+    room_id = building_page.book_a_room("25-05", 2, 2)
     print(room_id)
     room_count = room_db.check_current_room_count(room_id)
     print(room_count)
@@ -55,4 +55,4 @@ def test_owner_actions(chrome_browser):
     login_page.login_as_admin("alec@gmail.com", "alec123")
     user_id = user_db.get_user_id("alec@gmail.com")
     role = user_db.check_role(user_id)
-    # assert role == 1
+    assert role == 1

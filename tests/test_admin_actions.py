@@ -26,12 +26,12 @@ def test_admin_actions(chrome_browser):
     admin_page = AdminPage(driver)
     admin_page.navigate_to_add_owner_button()
 
-    admin_page.add_owner("Lisha", "9435627845", "lisha2@gmail.com", "lisha123")
+    admin_page.add_owner("Lisha", "9435627845", "lisha4@gmail.com", "lisha123")
     admin_page.navigate_to_add_owner_button()
     expected_owner_count = current_owner_count+1
     assert owner_db.get_total_number_of_owners() == expected_owner_count, "Expected {} owners after adding Lisha, but found {}".format(expected_owner_count, owner_db.get_total_number_of_owners())
 
-    admin_page.add_owner("Shree", "9435627341", "shree@gmail.com", "shree123")
+    admin_page.add_owner("Shree", "9435627341", "shree2@gmail.com", "shree123")
     expected_owner_count += 1
     assert owner_db.get_total_number_of_owners() == expected_owner_count, "Expected {} owners after adding Shree, but found {}".format(expected_owner_count, owner_db.get_total_number_of_owners())
 
@@ -41,11 +41,11 @@ def test_admin_actions(chrome_browser):
     login_page.logout()
 
     # Login as the activated owner to see if he/she lands on owner dashboard and logout
-    login_page.login_as_admin("lisha2@gmail.com", "lisha123")
+    login_page.login_as_admin("lisha4@gmail.com", "lisha123")
     login_page.logout()
 
     #Login as the deactivated owner to check the error message displayed
-    login_page.login_as_admin("shree@gmail.com", "shree123")
+    login_page.login_as_admin("shree2@gmail.com", "shree123")
     login_page.logout()
 
 
